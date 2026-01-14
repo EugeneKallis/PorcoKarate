@@ -47,6 +47,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Hamburger Menu Toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navList = document.getElementById('nav-list');
+
+if (mobileMenu && navList) {
+  mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('is-active');
+    navList.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-active');
+      navList.classList.remove('active');
+    });
+  });
+}
+
 // Form submission handler
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
